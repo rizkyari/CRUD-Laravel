@@ -17,10 +17,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Create Product</a>
+              <a class="nav-link" href="/">Create Product</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">View Products</a>
+              <a class="nav-link" href="/view">View Products</a>
             </li>
           </ul>
         </div>
@@ -44,7 +44,7 @@
                     <td>Rp2000</td>
                     <td>20</td>
                     <td>
-                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="/edit" class="btn btn-success">Edit</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
@@ -54,7 +54,7 @@
                     <td>Rp2000</td>
                     <td>20</td>
                     <td>
-                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="/edit" class="btn btn-success">Edit</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
