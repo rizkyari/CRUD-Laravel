@@ -30,4 +30,14 @@ class HomeController extends Controller
         $product = Product::where('id',$id)->first();
         return view('edit', compact('product'));
     }
+
+    public function update(Request $request, $id){
+        Product::where('id',$id)->update([
+            'product_name' => $request -> name,
+            'price' => $request -> price,
+            'stock' => $request -> stock,
+        ]);
+
+        return redirect("/view");
+    }
 }
