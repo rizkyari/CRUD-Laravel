@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,11 @@ Route::post('/store', [HomeController::class, 'store']);
 Route::patch('/update/{id}',[HomeController::class, 'update']);
 
 Route::delete("/delete/{id}", [HomeController::class, 'delete']);
+
+Route::get('/create-category', [CategoryController::class, 'create']);
+
+Route::get('/category', [CategoryController::class, 'index']);
+
+Route::post('/category-store', [CategoryController::class, 'store']);
+
+Route::delete('/category-delete/{id}', [CategoryController::class, 'delete']);
