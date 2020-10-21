@@ -40,4 +40,9 @@ class HomeController extends Controller
 
         return redirect("/view");
     }
+
+    public function delete($id){
+        Product::destroy($id);
+        return back();
+    }
 }
