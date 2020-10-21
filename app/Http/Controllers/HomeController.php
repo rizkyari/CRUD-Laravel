@@ -27,7 +27,9 @@ class HomeController extends Controller
     }
     
     public function edit($id){
-        $product = Product::where('id',$id)->first();
+        // findOrFail for one data only
+        // where id for many
+        $product = Product::findOrFail($id);
         return view('edit', compact('product'));
     }
 
