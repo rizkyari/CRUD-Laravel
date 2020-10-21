@@ -26,7 +26,8 @@ class HomeController extends Controller
         return view('products',compact('products'));
     }
     
-    public function edit(){
-        return view('edit');
+    public function edit($id){
+        $product = Product::where('id',$id)->first();
+        return view('edit', compact('product'));
     }
 }

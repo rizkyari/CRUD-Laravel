@@ -18,6 +18,6 @@ Route::get('/', [HomeController::class, 'home']);
 
 Route::get('/view', [HomeController::class, 'view']);
 
-Route::get('/edit', [HomeController::class, 'edit']);
+Route::get('/edit/{id}', [HomeController::class, 'edit']);
 
 Route::post('/store', [HomeController::class, 'store']);
