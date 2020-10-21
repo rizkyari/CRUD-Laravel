@@ -22,7 +22,8 @@ class HomeController extends Controller
     }
 
     public function view(){
-        return view('products');
+        $products = Product::all();
+        return view('products',compact('products'));
     }
     
     public function edit(){
