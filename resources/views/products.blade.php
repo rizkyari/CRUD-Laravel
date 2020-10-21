@@ -38,6 +38,7 @@
                 <tr>
                     <th>#</th>
                     <th>Product Name</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Stock</th>
                     <th>Action</th>
@@ -48,6 +49,7 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$product->product_name}}</td>
+                    <td>{{$product->category->name}}</td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->stock}}</td>
                     <td>

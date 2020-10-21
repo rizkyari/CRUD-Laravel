@@ -40,8 +40,12 @@
             </div>
             <div class="form-group">
                 <label for="">Product Category</label>
-                <select name="category_id">
-
+                <select name="category_id" class="form-control">
+                  @foreach ($categories as $category)
+                    <option value="{{$category->id}}">
+                      {{$category->name}}
+                    </option>
+                  @endforeach
                 </select>
             </div>
             <div class="form-group">

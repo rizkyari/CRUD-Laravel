@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class HomeController extends Controller
 {
     public function home(){
-        return view('welcome');
+        $categories = Category::all();
+        return view('welcome', compact('categories'));
     }
 
     Public function store(Request $request){
         Product::create([
             'product_name' => $request -> name,
+            'category_id' => $request -> category_id,
             'price' => $request -> price,
             'stock' => $request -> stock,
         ]);
