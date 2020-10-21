@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Our Products</title>
     <link rel="stylesheet" href="{{asset('style/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('style/style.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('style/style.css')}}"> -->
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,7 +46,11 @@
                     <td>{{$product->stock}}</td>
                     <td>
                       <a href="/edit/{{$product->id}}" class="btn btn-success">Edit</a>
-                      <button type="submit" class="btn btn-danger">Delete</button>
+                      <form action="/delete/{{$product->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
                     </td>
                   </tr>
                 @endforeach

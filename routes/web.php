@@ -23,3 +23,5 @@ Route::get('/edit/{id}', [HomeController::class, 'edit']);
 Route::post('/store', [HomeController::class, 'store']);
 
 Route::patch('/update/{id}',[HomeController::class, 'update']);
+
+Route::delete("/delete/{id}", [HomeController::class, 'delete']);
