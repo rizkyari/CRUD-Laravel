@@ -6,21 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Our Products</title>
     <link rel="stylesheet" href="{{asset('style/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('style/style.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('style/style.css')}}"> -->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">My CRUD</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Create Product</a>
-            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">View Products</a>
+              <a class="nav-link" href="/">Create Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/view">View Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/create-category">Create Category</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/category">View Category</a>
             </li>
           </ul>
         </div>
@@ -32,32 +38,30 @@
                 <tr>
                     <th>#</th>
                     <th>Product Name</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Stock</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Django</td>
-                    <td>Rp2000</td>
-                    <td>20</td>
+                @foreach($products as $product)
+                  <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$product->product_name}}</td>
+                    <td>{{$product->category->name}}</td>
+                    <td>{{$product->price}}</td>
+                    <td>{{$product->stock}}</td>
                     <td>
-                        <a href="" class="btn btn-success">Edit</a>
+                      <a href="/edit/{{$product->id}}" class="btn btn-success">Edit</a>
+                      <form action="/delete/{{$product->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
                     </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Django</td>
-                    <td>Rp2000</td>
-                    <td>20</td>
-                    <td>
-                        <a href="" class="btn btn-success">Edit</a>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
+                  </tr>
+                @endforeach
             </tbody>
         </table>
     </div>  

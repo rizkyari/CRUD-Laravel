@@ -8,46 +8,37 @@
     <link rel="stylesheet" href="{{asset('style/style.css')}}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">My CRUD</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/">Create Product</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/view">View Products</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="/create-category">Create Category</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="/category">View Category</a>
             </li>
           </ul>
         </div>
       </nav>
     <div class="container mt-5" style="width: 33%;">
-        <form class="mb-4" action="/update/{{$product->id}}" method="POST">
+        <form class="mb-4" action="/category-store" method="POST">
             @csrf
-            @method('PATCH')
-            <h1 class="text-center mb-4">Edit Product</h1>
+            <h1 class="text-center mb-4">Create Category</h1>
             <div class="form-group">
-                <label for="">Product Name</label>
-                <input type="text" class="form-control" value="{{$product->product_name}}" name="name">
+                <label for="">Category Name</label>
+                <input type="text" class="form-control" name="name">
             </div>
-            <div class="form-group">
-                <label for="">Price</label>
-                <input type="number" class="form-control" value="{{$product->price}}" name="price">
-            </div>
-            <div class="form-group">
-                <label for="">Stock</label>
-                <input type="number" class="form-control" value="{{$product->stock}}" name="stock">
-            </div>
-            <button type="submit" id="btn-submit" class="btn btn-primary mt-3">Submit</button>
+            <button id="btn-submit" class="btn btn-primary mt-3">Submit</button>
         </form>
     </div>
 <script src="{{asset('scripts/jquery-3.5.0.min.js')}}"></script>

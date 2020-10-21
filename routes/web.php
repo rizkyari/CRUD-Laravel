@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'home']);
+
+Route::get('/view', [HomeController::class, 'view']);
+
+Route::get('/edit/{id}', [HomeController::class, 'edit']);
+
+Route::post('/store', [HomeController::class, 'store']);
+
+Route::patch('/update/{id}',[HomeController::class, 'update']);
+
+Route::delete("/delete/{id}", [HomeController::class, 'delete']);
+
+Route::get('/create-category', [CategoryController::class, 'create']);
+
+Route::get('/category', [CategoryController::class, 'index']);
+
+Route::post('/category-store', [CategoryController::class, 'store']);
+
+Route::delete('/category-delete/{id}', [CategoryController::class, 'delete']);
