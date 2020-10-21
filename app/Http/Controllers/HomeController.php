@@ -22,10 +22,22 @@ class HomeController extends Controller
     }
 
     public function view(){
-        return view('products');
+        $products = Product::all();
+        return view('products',compact('products'));
     }
     
-    public function edit(){
-        return view('edit');
+    public function edit($id){
+        $product = Product::where('id',$id)->first();
+        return view('edit', compact('product'));
+    }
+
+    public function update(Request $request, $id){
+        Product::where('id',$id)->update([
+            'product_name' => $request -> name,
+            'price' => $request -> price,
+            'stock' => $request -> stock,
+        ]);
+
+        return redirect("/view");
     }
 }
